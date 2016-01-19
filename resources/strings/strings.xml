@@ -3,6 +3,7 @@
 
     <string id="prompt">Click the menu button</string>
 
-    <string id="menu_label_1">Item 1</string>
-    <string id="menu_label_2">Item 2</string>
+    <string id="menu_label_test_server">Test server call</string>
+    <string id="menu_label_start_recording">Start recording</string>
+    <string id="menu_label_stop_recording">Stop recording</string>
 </strings>
