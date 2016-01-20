@@ -4,16 +4,37 @@ using Toybox.Timer as Timer;
 
 class ActivitySession  {
 	
-	var mSession, mTimer;
+	var mSession,
+		mTimer,
+		mCounter,
+		mMates;
 
 	function onUpdate() {
+		
+		mCounter++;
 		
 		var info = Act.getActivityInfo();
 		
 		if (info.elapsedDistance != null) {
 			System.println("Distance:" + info.elapsedDistance);
-		}		
+			if (mCounter % 5 == 0) {
+				Server.reportAndFetchDistances(info.elapsedDistance, method(:onJsonResponse));
+			}
+		}				
 	}
+	
+	function logRecord(record) {
+		System.println(record.get("nickName")  + ": " + record.get("distance"));
+	}
+	
+	function onJsonResponse(code, data) {	
+		if (code == 200) {
+			Arrays.forEach(data, method(:logRecord));
+		} else {
+			System.println("Error:" + code);		
+		}
+	}
+
 
 
     function start() {
@@ -23,6 +44,7 @@ class ActivitySession  {
 			:name => "johan"
 		});
 
+		mCounter = 0;
 		mSession.start();
 		
 		mTimer = new Timer.Timer();
