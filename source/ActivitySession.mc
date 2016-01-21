@@ -41,7 +41,7 @@ class ActivitySession  {
 
 		mSession = AR.createSession({
 			:sport => AR.SPORT_CYCLING,
-			:name => "johan"
+			:name => "Racemates"
 		});
 
 		mCounter = 0;
@@ -54,5 +54,6 @@ class ActivitySession  {
     function stop() {
 		mTimer.stop();
 		mSession.stop();
+		mSession.save();
     }
 }
