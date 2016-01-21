@@ -17,7 +17,7 @@ class ActivitySession  {
 		
 		if (info.elapsedDistance != null) {
 			System.println("Distance:" + info.elapsedDistance);
-			if (mCounter % 5 == 0) {
+			if (mCounter % 20 == 0) {
 				Server.reportAndFetchDistances(info.elapsedDistance, method(:onJsonResponse));
 			}
 		}				
