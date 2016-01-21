@@ -29,7 +29,7 @@ class ActivitySession  {
 	
 	function onJsonResponse(code, data) {	
 		if (code == 200) {
-			Arrays.forEach(data, method(:logRecord));
+			Arrays.from(data).forEach(method(:logRecord));
 		} else {
 			System.println("Error:" + code);		
 		}
