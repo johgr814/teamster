@@ -4,7 +4,11 @@ using Toybox.WatchUi as Ui;
 class TeamsterApp extends App.AppBase {
 
     function initialize() {
-        AppBase.initialize();
+        AppBase.initialize();        
+    	
+    	//var arraysTest = new Tests.ArraysTest();
+    	//arraysTest.prepare();
+    	//Test.run();
     }
 
     //! onStart() is called on application start up
